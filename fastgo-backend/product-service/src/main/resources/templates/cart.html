@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FastGO - Cart</title>
+    <link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/" th:href="@{/}">FastGO</a>
+        <a href="/cart" th:href="@{/cart}">Cart</a>
+        <a href="/login" th:href="@{/login}">Login</a>
+        <a href="/register" th:href="@{/register}">Register</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Your Cart</h1>
+    <div>
+        <ul>
+            <li th:each="item : ${cartItems}">
+                <span th:text="${item.product.name}">Product Name</span>
+                <span>Quantity: <span th:text="${item.quantity}">1</span></span>
+                <span>Price: <span th:text="${item.product.price}">0.00</span></span>
+            </li>
+        </ul>
+    </div>
+    <a href="/order-summary" th:href="@{/order-summary}">Proceed to Checkout</a>
+</main>
+
+<footer>
+    <p>&copy; 2025 FastGO</p>
+</footer>
+</body>
+</html>
